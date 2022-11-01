@@ -1,9 +1,10 @@
-FROM centos:latest
-RUN yum install -y httpd \ 
+FROM ubuntu:latest
+RUN apt-get update -y
+RUN apt-get install apache2 \
 zip \
-unzip \
-ADD https://all-free-download.com/free-website-templates/download/real_one_template_6890871.html /var/www/html/
+unzip
 WORKDIR /var/www/html
-RUN unzip real_one_template_6890871.html
-CMD ["usr/sbin/httpd", "-D" ,"FOREGROUND"]
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page284/huddle.zip .
+RUN cp -rf huddle .
+CMD ["usr/sbin","-D","FOREGROUND"]
 EXPOSE 80
