@@ -9,4 +9,6 @@ RUN unzip built-better
 RUN cp -rf html/* .
 RUN rm -rf built-better.zip html
 CMD ["usr/sbin","-D","FOREGROUND"]
+CMD ["apachectl", "-D", "FOREGROUND"]
+
 EXPOSE 80
