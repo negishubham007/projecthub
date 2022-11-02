@@ -5,10 +5,11 @@ RUN apt-get install apache2 -y \
 zip \
 unzip
 WORKDIR /var/www/html
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page284/dorang.zip .
-RUN unzip dorang.zip 
-RUN cp -rf dorang/* .
-RUN rm -rf bdorang.zip.zip dorang
+RUN rm -rf *
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page278/brandon.zip .
+RUN unzip brandon.zip
+RUN cp -rf brandon/* .
+RUN rm -rf brandon.zip brandon
 #CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 #RUN service apache2 start
 #ENTRYPOINT apachectl -D FOREGROUND
