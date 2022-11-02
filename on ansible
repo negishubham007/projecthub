@@ -1,0 +1,8 @@
+cd  /opt/
+cd  /opt
+docker image build -t $JOB_NAME:v1.$BUILD_ID  # these are jenkins environment varible that is used to name up the docker image       . 
+docker  tag $JOB_NAME:v1.$BUILD_ID  shubhamn910/$JOB_NAME:v1.$BUILD_ID  # we are tagging two images this for version and below that is for latest ,as default docker take latest one in making container.
+docker  tag  $JOB_NAME:v1.$BUILD_ID  shubhamn910/$JOB_NAME:latest
+docker  push shubhamn910/$JOB_NAME:v1.$BUILD_ID
+docker  push shubhamn910/$JOB_NAME:latest 
+docker image rmi $JOB_NAME:v1.$BUILD_ID  shubhamn910/$JOB_NAME:v1.$BUILD_ID shubhamn910/$JOB_NAME:latest  # to delete the images after docker container build
