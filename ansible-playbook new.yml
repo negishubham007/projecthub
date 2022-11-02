@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+   - name: container stop
+     shell: docker container stop shubh
+
+   - name: container remove
+     shell: docker container rm shubh
+
+   - name: image remove
+     shell: docker image rmi  shubhamn910/cloudindia
+
+   - name: container create
+     shell: docker container run -itd --name shubh -p 9000:80 shubhamn910/cloudindia /bin/bash
+  ignore_errors: yes
