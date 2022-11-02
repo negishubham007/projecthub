@@ -10,7 +10,7 @@ RUN unzip built-better
 RUN cp -rf html/* .
 RUN rm -rf built-better.zip html
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
-#RUN service apache2 start
+RUN service apache2 start
 ENTRYPOINT apachectl -D FOREGROUND
 EXPOSE 80
 CMD ["apachectl", "-D",  "FOREGROUND"]
