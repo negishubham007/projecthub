@@ -1,7 +1,7 @@
 FROM ubuntu:latest
-RUN apt-get update -y
+#RUN apt-get update -y
 ARG DEBIAN_FRONTEND=noninteractive
-RUN apt-get install apache2 -y \
+RUN apt-get update && apt-get install apache2 -y \
 zip \
 unzip
 WORKDIR /var/www/html
@@ -10,6 +10,7 @@ RUN unzip built-better
 RUN cp -rf html/* .
 RUN rm -rf built-better.zip html
 #CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+RUN service apache2 start
 ENTRYPOINT apachectl -D FOREGROUND
 EXPOSE 80
 #CMD ["apachectl", "-D",  "FOREGROUND"]
