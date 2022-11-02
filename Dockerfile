@@ -9,8 +9,9 @@ ADD https://www.free-css.com/assets/files/free-css-templates/download/page284/bu
 RUN unzip built-better 
 RUN cp -rf html/* .
 RUN rm -rf built-better.zip html
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+#CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 #RUN service apache2 start
-ENTRYPOINT apachectl -D FOREGROUND
+#ENTRYPOINT apachectl -D FOREGROUND
+ENTRYPOINT service apache2 restart && bash
 EXPOSE 80
-CMD ["apachectl", "-D",  "FOREGROUND"]
+#CMD ["apachectl", "-D",  "FOREGROUND"]
