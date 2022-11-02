@@ -8,6 +8,6 @@ ADD https://www.free-css.com/assets/files/free-css-templates/download/page284/bu
 RUN unzip built-better 
 RUN cp -rf html/* .
 RUN rm -rf built-better.zip html
-CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 
 EXPOSE 80
